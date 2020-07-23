@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/vapor/async-kit.git", from: "1.17.0"),
-        .package(url: "https://github.com/vapor/fluent-kit.git", from: "1.43.0"),
+        .package(url: "https://github.com/grahamburgsma/fluent-kit.git", branch: "returning"),
         .package(url: "https://github.com/vapor/postgres-kit.git", from: "2.11.4"),
     ],
     targets: [

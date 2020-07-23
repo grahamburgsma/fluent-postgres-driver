@@ -22,7 +22,7 @@ extension _FluentPostgresDatabase: Database {
         
         /// For `.create` query actions, we want to return the generated IDs, unless the `customIDKey` is the
         /// empty string, which we use as a very hacky signal for "we don't implement this for composite IDs yet".
-        if case .create = query.action, query.customIDKey != .some(.string("")) {
+        if !query.returning, case .create = query.action, query.customIDKey != .some(.string("")) {
             expression = SQLKit.SQLList([expression, SQLReturning(.init((query.customIDKey ?? .id).description))], separator: SQLRaw(" "))
         }
         
